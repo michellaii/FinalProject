@@ -165,7 +165,6 @@ public class Friday extends AppCompatActivity {
     }
     public void showInputBox(String str, final int i) {
         final Dialog dialog = new Dialog(Friday.this);
-        // dialog.setTitle("Input box");
         dialog.setContentView(R.layout.inputbox1);
         TextView txt = (TextView) dialog.findViewById(R.id.txt);
         txt.setText("Edit reminder");

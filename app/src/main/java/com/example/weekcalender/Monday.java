@@ -22,8 +22,6 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Calendar;
-import java.util.HashMap;
 
 public class Monday extends AppCompatActivity {
     ListView timeView;
@@ -43,15 +41,17 @@ public class Monday extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_monday);
 
+        //set back button
         android.support.v7.widget.Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Select A Time");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
         timeView = (ListView)findViewById(R.id.timeView);
         saved = (ListView) findViewById(R.id.saved);
         button = (Button) findViewById(R.id.button10);
+
+        //Delete All button
         button.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
@@ -68,8 +68,7 @@ public class Monday extends AppCompatActivity {
             }
         });
 
-
-
+        //list of time view
         ArrayList<String> timeList = new ArrayList<>();
         timeList.add("12 AM");
         timeList.add("1 AM");
@@ -96,7 +95,6 @@ public class Monday extends AppCompatActivity {
         timeList.add("10 PM");
         timeList.add("11 PM");
 
-
         ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, timeList);
         timeView.setAdapter(arrayAdapter);
         timeView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -105,7 +103,7 @@ public class Monday extends AppCompatActivity {
             }
         });
 
-//sync scroll and touch
+        //sync scroll and touch
         timeView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -156,6 +154,7 @@ public class Monday extends AppCompatActivity {
 
         });
 
+        //list of input text view
         String[] items = {" ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ",
          " ", " " , " ", " ", " ", " ", " ", " ", " "};
         reminder = new ArrayList<>(Arrays.asList(items));
@@ -175,11 +174,8 @@ public class Monday extends AppCompatActivity {
         }
     }
 
-
-
     public void showInputBox(String str, final int i) {
         final Dialog dialog = new Dialog(Monday.this);
-       // dialog.setTitle("Input box");
         dialog.setContentView(R.layout.inputbox1);
         TextView txt = (TextView) dialog.findViewById(R.id.txt);
         txt.setText("Edit reminder");

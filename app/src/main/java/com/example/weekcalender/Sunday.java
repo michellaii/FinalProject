@@ -2,7 +2,6 @@ package com.example.weekcalender;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
@@ -166,7 +165,6 @@ public class Sunday extends AppCompatActivity {
     }
     public void showInputBox(String str, final int i) {
         final Dialog dialog = new Dialog(Sunday.this);
-        // dialog.setTitle("Input box");
         dialog.setContentView(R.layout.inputbox1);
         TextView txt = (TextView) dialog.findViewById(R.id.txt);
         txt.setText("Edit reminder");
